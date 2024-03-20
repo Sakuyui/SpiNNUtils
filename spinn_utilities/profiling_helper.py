@@ -1,4 +1,5 @@
 from spynnaker.pyNN.utilities import neo_convertor
+from spynnaker.pyNN.models.populations import Population
 import numpy
 import os
 class ProfilingHelper(object):
@@ -7,7 +8,7 @@ class ProfilingHelper(object):
         pop.record(["spikes", "v", "packets-per-timestep"])
 
     @classmethod
-    def record_full_data_to_csv(self, pop , path = None): 
+    def record_full_data_to_csv(self, pop: Population , path = None): 
         if path == None:
             path = os.path.dirname(os.path.abspath(__file__))
         cells = pop.get_data(
